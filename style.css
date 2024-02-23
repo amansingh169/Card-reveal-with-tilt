@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+
+    /* -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; */
+}
+
+:root{
+    --color1: magenta;
+    --color2: orange;
+    --bgcolor: rgb(26, 25, 32);
+    --textcolor: rgb(166, 164, 177);
+}
+
+.img{
+    position: fixed;
+    z-index: -1;
+    mix-blend-mode:overlay;
+    height: 100vh;
+    width: 100vw;
+}
+
+body{
+    background-color: var(--bgcolor);
+}
+body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--color1), var(--color2));
+    clip-path: circle(40% at 85% 90%);
+    mix-blend-mode:overlay;
+}
+body::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--color2), var(--color1));
+    clip-path: circle(15% at 15% 25%);
+    mix-blend-mode:overlay;
+}
+
+main{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* .card{
+    position: relative;
+    height: 400px;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    z-index: 1;
+
+    box-shadow: 10px 10px 50px rgb(0, 0, 0, .5);
+    
+    border-radius: 5px;
+    border-top: 1px solid orange;
+    border-right: 1px solid magenta;
+    border-bottom: 1px solid orange;
+    border-left: 1px solid magenta;
+} */
+.card{
+    position: relative;
+    height: 400px;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    z-index: 1;
+        
+    /* border: 1px solid rgb(119, 140, 180); */
+    border: 2px dashed white;
+    border-radius: 10px;
+    overflow: hidden;
+    /* text-align: center; */
+}
+.card .preview{
+    position: absolute;
+    height: 400px;
+    width: 250px;
+    text-align: right;
+    color: white;
+    font-size: 5rem;
+    line-height: 1;
+    filter: blur(1px);
+    opacity: 40%;
+    transition: opacity .5s;
+}
+/* .preview h1{
+    -webkit-text-stroke: 5px white;
+    -webkit-text-fill-color: transparent;
+} */
+.card-content{
+    transform: translateY(220px);
+    opacity: 0;
+
+    transition: transform ease .4s, opacity .4s;
+}
+.card:hover .card-content{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.card:hover .preview{
+    opacity: 0;
+}
+.card h2{
+    color: white;
+}
+.card p{
+    font-size: .9rem;
+    margin-top: 5px;
+    color: var(--textcolor);
+}
+.card-image{
+    position: relative;
+    margin-top: -10px;
+    height: 150px;
+    width: inherit;
+    border-radius: 0 0 10px 10px;
+}
+
+.card1 .card-image{
+    background: url(https://www.realestate.com.au/news-image/w_2000,h_1500/v1657825043/news-lifestyle-content-assets/wp-content/production/Charry-blossoms-hero.jpg?_i=AA) center/cover;
+}
+.card2 .card-image{
+    background: url(https://c4.wallpaperflare.com/wallpaper/204/156/990/nature-japan-leaves-trees-wallpaper-preview.jpg) center/cover;
+}
+.card3 .card-image{
+    background: url(https://a.travel-assets.com/findyours-php/viewfinder/images/res70/490000/490105-kofu.jpg) center/cover;
+}
+
+.card-tags{
+    display: flex;
+    padding: 10px 0 5px 0;
+    gap: 10px;
+    /* justify-content: center; */
+}
+
+.tag{
+    font-size: .8rem;
+    color: var(--textcolor);
+    padding: 1px 10px;
+    border: 1px solid rgb(102, 102, 102);
+    border-radius: 20px;
+}
+
+.read-more{
+    text-align: center;
+    margin-top: 20px;
+}
+.read-more button{    
+    color: white;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px dashed white;
+    border-radius: 50px;
+    transition: border-radius .3s, background-color .3s;
+    cursor: pointer;
+}
+.read-more button:hover{
+    border-radius: 0px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
